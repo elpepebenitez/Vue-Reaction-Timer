@@ -1,7 +1,8 @@
 <template>
   <h1>Reaction Timer Game</h1>
   <button @click="start" :disabled="isPlaying" >Play</button>
-  <p v-if="showResults" >Reaction time: {{score}} ms</p>
+
+  <results v-if="showResults" :score="score" ></results>
   <block v-if="isPlaying" :delay="delay" @end="endGame"></block>
 </template>
 
@@ -46,5 +47,20 @@ export default {
   text-align: center;
   color: #444;
   margin-top: 60px;
+}
+button {
+  background: #0faf87;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin: 10px;
+}
+button[disabled] {
+  opacity: 0.2;
+  cursor: not-allowed;
 }
 </style>
